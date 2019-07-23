@@ -1,4 +1,4 @@
-# mrtnsn-keyboard-layout (ver1.3)
+# Martynak ⌨️
 Keyboard layout for Ru/En typing. Based on fully optimized QGMLWB layout (http://mkweb.bcgsc.ca/carpalx/?full_optimization).
 
 ## For Windows
