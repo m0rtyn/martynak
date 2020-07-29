@@ -6,6 +6,18 @@ Keyboard layout for Ru/En typing. Based on fully optimized QGMLWB layout (http:/
 
 [![Talk about Martynak and other keyboard layouts](https://img.youtube.com/vi/vXjp7R0G9ws/0.jpg)](https://www.youtube.com/watch?v=vXjp7R0G9ws)
 
+### Why
+
+- Phonetically associated layouts
+- Optimized for blind typing
+- Compatibility of punctuation keys
+- QWERTY hotkey compatibility
+- Low efforts and errors level
+- Fast typing
+- Fast language swithing
+- Fuck the QWERTY
+- Fun
+
 ### En layout
 
 ![](./assets/en-layout.png)
