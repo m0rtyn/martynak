@@ -2,8 +2,9 @@
 
 Keyboard layout for Ru/En typing. Based on fully optimized QGMLWB layout (http://mkweb.bcgsc.ca/carpalx/?full_optimization).
 
-## About
+## Talk about layout (Ru)
 
+Youtube:
 [![Talk about Martynak and other keyboard layouts](https://img.youtube.com/vi/vXjp7R0G9ws/0.jpg)](https://www.youtube.com/watch?v=vXjp7R0G9ws)
 
 ### Why
