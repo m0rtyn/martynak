@@ -4,7 +4,7 @@ Keyboard layout for Ru/En typing. Based on fully optimized QGMLWB layout (http:/
 
 ## Talk about layout (Ru)
 
-Youtube: [![Talk about Martynak and other keyboard layouts](assets/47077_2000 2.png)](https://www.youtube.com/watch?v=vXjp7R0G9ws)
+Youtube: [![Talk about Martynak and other keyboard layouts](https://raw.githubusercontent.com/martyns0n/martynak/master/assets/47077_2000%202.png)](https://www.youtube.com/watch?v=vXjp7R0G9ws)
 
 ### Why
 
