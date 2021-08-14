@@ -1,6 +1,6 @@
 # Ru/En optimized keyboard layout
 
-Keyboard layout for Ru/En typing. Based on fully optimized QGMLWB layout (http://mkweb.bcgsc.ca/carpalx/?full_optimization).
+Keyboard layout for Ru/En typing. Based on fully optimized QGMLWY layout (http://mkweb.bcgsc.ca/carpalx/?full_optimization).
 
 ## About
 
