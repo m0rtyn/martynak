@@ -1,22 +1,30 @@
-# Ru/En optimized keyboard layout
+# Martynak
 
-Keyboard layout for Ru/En typing. Based on fully optimized QGMLWY layout (http://mkweb.bcgsc.ca/carpalx/?full_optimization).
+Martynak — optimized keyboard layout for Ru/En langs. Based on fully optimized QGMLWY layout (About: http://mkweb.bcgsc.ca/carpalx/?full_optimization).
 
-## About
+## Table of Contents
 
-[![Talk about Martynak and other keyboard layouts](https://img.youtube.com/vi/vXjp7R0G9ws/0.jpg)](https://www.youtube.com/watch?v=vXjp7R0G9ws)
+- [Martynak](#martynak)
+  - [Table of Contents](#table-of-contents)
+  - [Why](#why)
+  - [Examples](#examples)
+  - [Usage](#usage)
 
-### Why
+## Why
+
+### Talk about layout (Ru)
+
+On Youtube: [![Talk about Martynak and other keyboard layouts](https://raw.githubusercontent.com/martyns0n/martynak/master/assets/47077_2000%202.png)](https://www.youtube.com/watch?v=vXjp7R0G9ws)
+
+### Features
 
 - Phonetically associated layouts
-- Optimized for blind typing
-- Compatibility of punctuation keys
-- QWERTY hotkey compatibility
+- Optimized for blind typing (and truly blind too)
+- Compatibility of punctuation keys in RU/EN layouts
+- QWERTY hotkey compatibility in Apps
 - Low efforts and errors level
-- Fast typing
-- Fast language swithing
-- Fuck the QWERTY
-- Fun
+
+## Examples
 
 ### En layout
 
@@ -34,11 +42,13 @@ Keyboard layout for Ru/En typing. Based on fully optimized QGMLWY layout (http:/
 
 ![](./assets/cmd-layout.png)
 
-## For Mac
+## Usage
+
+### For Mac
 
 Just run dmg file. Make layouts basic for input in both languages in the settings.
 
-## For Windows
+### For Windows
 
 Download and unpack archives with Russian and English languages, then run .еxe files. Make layouts basic for input in both languages in the settings.
 
