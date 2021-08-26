@@ -12,7 +12,7 @@ Martynak — optimized keyboard layout for Ru/En langs. Based on fully optimized
 
 ### Talk about layout (Ru)
 
-**Youtube**: [![Talk about Martynak and other keyboard layouts](https://raw.githubusercontent.com/martyns0n/martynak/master/assets/47077_2000%202.png)](https://www.youtube.com/watch?v=vXjp7R0G9ws)
+**Youtube**: [![Talk about Martynak and other keyboard layouts](https://user-images.githubusercontent.com/20739202/130952667-d39f9f68-cdca-419e-82c9-f811ca25bce3.png)](https://www.youtube.com/watch?v=vXjp7R0G9ws)
 
 ### Features
 
