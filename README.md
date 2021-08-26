@@ -4,17 +4,15 @@ Martynak — optimized keyboard layout for Ru/En langs. Based on fully optimized
 
 ## Table of Contents
 
-- [Martynak](#martynak)
-  - [Table of Contents](#table-of-contents)
-  - [Why](#why)
-  - [Examples](#examples)
-  - [Usage](#usage)
+- [Why](#why)
+- [Examples](#examples)
+- [Usage](#usage)
 
 ## Why
 
 ### Talk about layout (Ru)
 
-On Youtube: [![Talk about Martynak and other keyboard layouts](https://raw.githubusercontent.com/martyns0n/martynak/master/assets/47077_2000%202.png)](https://www.youtube.com/watch?v=vXjp7R0G9ws)
+**Youtube**: [![Talk about Martynak and other keyboard layouts](https://raw.githubusercontent.com/martyns0n/martynak/master/assets/47077_2000%202.png)](https://www.youtube.com/watch?v=vXjp7R0G9ws)
 
 ### Features
 
