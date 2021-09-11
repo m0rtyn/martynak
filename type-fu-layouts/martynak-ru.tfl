@@ -1,0 +1,305 @@
+{
+  "id": "custom-020352d9-8dbd-45bd-9ff1-d921aadf93ae",
+  "name": "Martynak RU",
+  "version": 1,
+  "keys": {
+    "KeyQ": {
+      "default": {
+        "base": "я",
+        "shift": "Я"
+      }
+    },
+    "KeyW": {
+      "default": {
+        "base": "г",
+        "shift": "Г"
+      }
+    },
+    "KeyE": {
+      "default": {
+        "base": "м",
+        "shift": "М",
+        "alt": " "
+      }
+    },
+    "KeyR": {
+      "default": {
+        "base": "л",
+        "shift": "Л"
+      }
+    },
+    "KeyT": {
+      "default": {
+        "base": "ш",
+        "shift": "Ш"
+      }
+    },
+    "KeyY": {
+      "default": {
+        "base": "б",
+        "shift": "Б"
+      }
+    },
+    "KeyU": {
+      "default": {
+        "base": "ы",
+        "shift": "Ы"
+      }
+    },
+    "KeyI": {
+      "default": {
+        "base": "у",
+        "shift": "У",
+        "alt": "ю",
+        "altShift": "Ю"
+      }
+    },
+    "KeyO": {
+      "default": {
+        "base": "в",
+        "shift": "В"
+      }
+    },
+    "KeyP": {
+      "default": {
+        "base": "'",
+        "shift": "\""
+      }
+    },
+    "BracketLeft": {
+      "default": {
+        "base": "[",
+        "shift": "{"
+      }
+    },
+    "BracketRight": {
+      "default": {
+        "base": "]",
+        "shift": "}"
+      }
+    },
+    "Backslash": {
+      "default": {
+        "base": "\\",
+        "shift": "|"
+      }
+    },
+    "KeyA": {
+      "default": {
+        "base": "д",
+        "shift": "Д"
+      }
+    },
+    "KeyS": {
+      "default": {
+        "base": "с",
+        "shift": "С"
+      }
+    },
+    "KeyD": {
+      "default": {
+        "base": "т",
+        "shift": "Т",
+        "alt": "ъ",
+        "altShift": "Ъ"
+      }
+    },
+    "KeyF": {
+      "default": {
+        "base": "н",
+        "shift": "Н",
+        "alt": "ь",
+        "altShift": "Ь"
+      }
+    },
+    "KeyG": {
+      "default": {
+        "base": "р",
+        "shift": "Р"
+      }
+    },
+    "KeyH": {
+      "default": {
+        "base": "и",
+        "shift": "И"
+      }
+    },
+    "KeyJ": {
+      "default": {
+        "base": "а",
+        "shift": "А"
+      }
+    },
+    "KeyK": {
+      "default": {
+        "base": "е",
+        "shift": "Е",
+        "alt": "э",
+        "altShift": "Э"
+      }
+    },
+    "KeyL": {
+      "default": {
+        "base": "о",
+        "shift": "O",
+        "alt": "ё",
+        "altShift": "Ё"
+      }
+    },
+    "Semicolon": {
+      "default": {
+        "base": "ч",
+        "shift": "Ч"
+      }
+    },
+    "Quote": {
+      "default": {
+        "base": ";",
+        "shift": ":"
+      }
+    },
+    "KeyZ": {
+      "default": {
+        "base": "з",
+        "shift": "З",
+        "alt": "ж",
+        "altShift": "Ж"
+      }
+    },
+    "KeyX": {
+      "default": {
+        "base": "х",
+        "shift": "Х"
+      }
+    },
+    "KeyC": {
+      "default": {
+        "base": "ц",
+        "shift": "Ц"
+      }
+    },
+    "KeyV": {
+      "default": {
+        "base": "ф",
+        "shift": "Ф"
+      }
+    },
+    "KeyB": {
+      "default": {
+        "base": "й",
+        "shift": "Й"
+      }
+    },
+    "KeyN": {
+      "default": {
+        "base": "к",
+        "shift": "К"
+      }
+    },
+    "KeyM": {
+      "default": {
+        "base": "п",
+        "shift": "П"
+      }
+    },
+    "Comma": {
+      "default": {
+        "base": ",",
+        "shift": "<",
+        "alt": "«"
+      }
+    },
+    "Period": {
+      "default": {
+        "base": ".",
+        "shift": ">",
+        "alt": "»"
+      }
+    },
+    "Slash": {
+      "default": {
+        "base": "/",
+        "shift": "?"
+      }
+    },
+    "Backquote": {
+      "default": {
+        "base": "`",
+        "shift": "~"
+      }
+    },
+    "Digit1": {
+      "default": {
+        "base": "1",
+        "shift": "!"
+      }
+    },
+    "Digit2": {
+      "default": {
+        "base": "2",
+        "shift": "@"
+      }
+    },
+    "Digit3": {
+      "default": {
+        "base": "3",
+        "shift": "#"
+      }
+    },
+    "Digit4": {
+      "default": {
+        "base": "4",
+        "shift": "$"
+      }
+    },
+    "Digit5": {
+      "default": {
+        "base": "5",
+        "shift": "%"
+      }
+    },
+    "Digit6": {
+      "default": {
+        "base": "6",
+        "shift": "^"
+      }
+    },
+    "Digit7": {
+      "default": {
+        "base": "7",
+        "shift": "&"
+      }
+    },
+    "Digit8": {
+      "default": {
+        "base": "8",
+        "shift": "*"
+      }
+    },
+    "Digit9": {
+      "default": {
+        "base": "9",
+        "shift": "("
+      }
+    },
+    "Digit0": {
+      "default": {
+        "base": "0",
+        "shift": ")"
+      }
+    },
+    "Minus": {
+      "default": {
+        "base": "-",
+        "shift": "_",
+        "alt": "—"
+      }
+    },
+    "Equal": {
+      "default": {
+        "base": "=",
+        "shift": "+"
+      }
+    }
+  }
+}
