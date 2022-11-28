@@ -1,6 +1,6 @@
 # Martynak
 
-<img src="https://user-images.githubusercontent.com/20739202/204223359-82cfbbf8-e944-4319-a362-b1745a64888f.png" width="200" />
+<img src="https://user-images.githubusercontent.com/20739202/204223359-82cfbbf8-e944-4319-a362-b1745a64888f.png" width="150" />
 
 Martynak — optimized keyboard layout for Ru/En langs. Based on [fully optimized QGMLWY layout](http://mkweb.bcgsc.ca/carpalx/?full_optimization).
 
