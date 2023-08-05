@@ -2,22 +2,22 @@
   "title": "martynak",
   "onScreen": {
     "main": [
-      "qgmlw.yfub",
-      "dstnr[ALTGR]iaeo",
-      "?zxcv[DEL]jkph",
-      "[TOOL][SHIFT][SPACE][][][ENTER]"
+      "qgmlwyfub",
+      "dstnraeoh",
+      "zxcv[ALTGR: ]ijkp",
+      "[TOOL][DEL][SPACE][][SHIFT][ENTER]"
     ],
     "sym": [
-      "ё6  щ, ю8 ",
-      " 57ьъ 1э30",
-      "!2ж  [WDEL]9  4",
-      "[TOOL][SHIFT][SPACE][][][ENTER]"
+      "ё6  щ  ю8",
+      "ь57ъ э304",
+      "2ж    19  ",
+      "[TOOL][WDEL][SPACE][][SHIFT][ENTER]"
     ],
     "altGr": [
-      "@#&$%^&*_+",
-      "'\"/\\-—;:=~",
-      "()[]{}<>«»",
-      "[TOOL][SHIFT][SPACE][][][ENTER]"
+      "@#$% ^&* ",
+      "'\"-_ ;:+=",
+      "/\\—` ~•→►",
+      "()[] <>«»"
     ]
   }
 }
