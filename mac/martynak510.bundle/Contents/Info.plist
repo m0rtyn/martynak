@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleIdentifier</key>
+	<string>org.sil.ukelele.keyboardlayout.martynak</string>
+	<key>CFBundleName</key>
+	<string>martynak510</string>
+	<key>CFBundleVersion</key>
+	<string>5.1.0</string>
+	<key>KLInfo_martynak-en</key>
+	<dict>
+		<key>TICapsLockLanguageSwitchCapable</key>
+		<false/>
+		<key>TISIconIsTemplate</key>
+		<false/>
+		<key>TISInputSourceID</key>
+		<string>org.sil.ukelele.keyboardlayout.martynak.martynak-en</string>
+		<key>TISIntendedLanguage</key>
+		<string>en</string>
+	</dict>
+	<key>KLInfo_martynak-ru</key>
+	<dict>
+		<key>TICapsLockLanguageSwitchCapable</key>
+		<false/>
+		<key>TISIconIsTemplate</key>
+		<false/>
+		<key>TISInputSourceID</key>
+		<string>org.sil.ukelele.keyboardlayout.martynak.martynak-ru</string>
+		<key>TISIntendedLanguage</key>
+		<string>ils</string>
+	</dict>
+</dict>
+</plist>
