@@ -44,19 +44,23 @@ Also you can use [Type Fu](https://type-fu.com/) extension for Chrome (Vivaldi, 
 
 ### En layout
 
-![](./assets/en-layout.png)
+<img width="1365" alt="image" src="https://github.com/user-attachments/assets/e600ab28-5937-474e-b506-0c3f05b59204" />
+
 
 ### Ru layout
 
-![](./assets/ru-layout.png)
+<img width="1321" alt="image" src="https://github.com/user-attachments/assets/519bbb8d-f3bb-45de-ac4d-ea3b1135539d" />
+
 
 ### Both layouts on pressed alt/option
 
-![](./assets/option-layout.png)
+<img width="1321" alt="image" src="https://github.com/user-attachments/assets/eae8778e-e2dd-4be1-9f3c-01e869361204" />
+
 
 ### Both layouts on pressed Cmd or Ctrl 
 
-![](./assets/cmd-layout.png)
+<img width="1321" alt="image" src="https://github.com/user-attachments/assets/b9b98f92-df7c-46fe-8f44-d8ffd5e2f0ae" />
+
 
 ## Usage
 
