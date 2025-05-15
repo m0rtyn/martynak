@@ -1,0 +1,26 @@
+{
+  "title": "crockfordak",
+  "onScreen": {
+    "main": [
+      "abcdefg",
+      "hijklmn",
+      "opqrstu",
+      "vwxyz[ALTGR: ][]",
+      "[TOOL][SHIFT][SPACE][][DEL][ENTER]"
+    ],
+    "sym": [
+      " 8  3 6",
+      "419    ",
+      "0   57 ",
+      "   92,.",
+      "[TOOL][SHIFT][SPACE][][DEL][ENTER]"
+    ],
+    "altGr": [
+      "@#$%^&*",
+      "'\"-_;:!",
+      "\\—`~+=?",
+      "()[]«» ",
+      "{}<>|,."
+    ]
+  }
+}
