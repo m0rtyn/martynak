@@ -3,16 +3,16 @@
   "onScreen": {
     "main": [
       "abcdefg",
-      "hijklmn",
-      "opqrstu",
-      "vwxyz[ALTGR: ][]",
+      "hij[ALTGR: ]klm",
+      "nop[ALTGR: ]qrs",
+      "tuvwxyz",
       "[TOOL][SHIFT][SPACE][][DEL][ENTER]"
     ],
     "sym": [
-      " 8  3 6",
+      "э8  3 6",
       "419    ",
-      "0   57 ",
-      "   92,.",
+      "ь0  ёъ5",
+      "7ю8щж92",
       "[TOOL][SHIFT][SPACE][][DEL][ENTER]"
     ],
     "altGr": [
