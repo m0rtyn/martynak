@@ -1,0 +1,1515 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Мартынак — оптимизированная клавиатурная раскладка</title>
+  <meta name="description"
+    content="Мартынак — клавиатурная раскладка для эффективной слепой печати на русском и английском языках">
+  <link rel="icon" type="image/svg+xml" href="./assets/martynak.svg">
+  <link rel="apple-touch-icon" href="./assets/martynak-logo.png">
+
+  <style>
+    :root {
+      --primary: oklch(0.65 0.15 240);
+      --secondary: oklch(0.75 0.08 300);
+      --accent: oklch(0.7 0.12 30);
+      --bg-primary: oklch(0.98 0.01 240);
+      --bg-secondary: oklch(0.95 0.02 240);
+      --text-primary: oklch(0.25 0.02 240);
+      --text-secondary: oklch(0.45 0.02 240);
+      --border: oklch(0.88 0.02 240);
+      --shadow: oklch(0.25 0.02 240 / 0.1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, system-ui, sans-serif;
+      line-height: 1.6;
+      color: var(--text-primary);
+      background: var(--bg-primary);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    /* Header */
+    header {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      padding: 2rem 0;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero {
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-content {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .logo {
+      width: 80px;
+      height: 80px;
+      object-fit: contain;
+      filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+      transition: transform 0.3s ease;
+    }
+
+    .logo:hover {
+      transform: scale(1.05);
+    }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 700;
+      margin-bottom: 1rem;
+      animation: fadeInUp 0.8s ease-out;
+    }
+
+    .hero .subtitle {
+      font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+      opacity: 0.9;
+      margin-bottom: 2rem;
+      animation: fadeInUp 0.8s ease-out 0.2s both;
+    }
+
+    .lang-switch {
+      display: flex;
+      gap: 0.5rem;
+      justify-content: center;
+      margin-bottom: 2rem;
+      animation: fadeInUp 0.8s ease-out 0.4s both;
+    }
+
+    .lang-btn {
+      padding: 0.5rem 1rem;
+      background: rgba(255, 255, 255, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      color: white;
+      text-decoration: none;
+      border-radius: 25px;
+      transition: all 0.3s ease;
+      font-weight: 500;
+    }
+
+    .lang-btn:hover,
+    .lang-btn.active {
+      background: rgba(255, 255, 255, 0.3);
+      transform: translateY(-2px);
+    }
+
+    /* Navigation */
+    nav {
+      background: var(--bg-secondary);
+      padding: 1rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-links {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      color: var(--text-primary);
+      text-decoration: none;
+      font-weight: 500;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      transition: all 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      background: var(--primary);
+      color: white;
+      transform: translateY(-2px);
+    }
+
+    /* Main content */
+    main {
+      padding: 2rem 0;
+    }
+
+    section {
+      margin-bottom: 4rem;
+      background: white;
+      padding: 2rem;
+      border-radius: 16px;
+      box-shadow: 0 4px 20px var(--shadow);
+      border: 1px solid var(--border);
+    }
+
+    h2 {
+      color: var(--primary);
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+
+    h3 {
+      color: var(--secondary);
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .two-column {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+
+    .stat-card {
+      background: linear-gradient(135deg, var(--accent), var(--secondary));
+      color: white;
+      padding: 1.5rem;
+      border-radius: 12px;
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+
+    .stat-card:hover {
+      transform: scale(1.05);
+    }
+
+    .stat-number {
+      font-size: 2rem;
+      font-weight: 700;
+      display: block;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+
+    .feature-card {
+      padding: 1.5rem;
+      background: var(--bg-secondary);
+      border-radius: 12px;
+      border-left: 4px solid var(--primary);
+      transition: all 0.3s ease;
+    }
+
+    .feature-card:hover {
+      transform: translateX(5px);
+      box-shadow: 0 4px 15px var(--shadow);
+    }
+
+    .feature-icon {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .download-section {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      text-align: center;
+    }
+
+    .download-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+
+    .download-btn {
+      display: inline-block;
+      padding: 1rem 2rem;
+      background: rgba(255, 255, 255, 0.2);
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      color: white;
+      text-decoration: none;
+      border-radius: 12px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .download-btn:hover {
+      background: rgba(255, 255, 255, 0.3);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .keyboard-demo {
+      background: var(--bg-secondary);
+      padding: 2rem;
+      border-radius: 12px;
+      margin: 2rem 0;
+      text-align: center;
+    }
+
+    .layout-section {
+      margin-bottom: 2rem;
+    }
+
+    .layout-section h4 {
+      border-bottom: 2px solid var(--primary);
+      padding-bottom: 0.5rem;
+      display: inline-block;
+    }
+
+    .layout-panel {
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .layout-panel:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px var(--shadow) !important;
+    }
+
+    .keyboard-row {
+      display: flex;
+      justify-content: center;
+      gap: 0.25rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .key {
+      min-width: 2.5rem;
+      height: 2.5rem;
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 500;
+      font-size: 0.9rem;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .key:hover {
+      background: var(--primary);
+      color: white;
+      transform: translateY(-2px);
+    }
+
+    .key.home-row {
+      background: var(--accent);
+      color: white;
+    }
+
+    .contact-section {
+      text-align: center;
+      background: var(--bg-secondary);
+    }
+
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-top: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .contact-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.5rem;
+      background: var(--primary);
+      color: white;
+      text-decoration: none;
+      border-radius: 25px;
+      transition: all 0.3s ease;
+    }
+
+    .contact-link:hover {
+      background: var(--secondary);
+      transform: translateY(-2px);
+    }
+
+    footer {
+      background: var(--text-primary);
+      color: white;
+      text-align: center;
+      padding: 2rem 0;
+      margin-top: 2rem;
+    }
+
+    /* Animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .fade-in {
+      animation: fadeInUp 0.8s ease-out;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .logo {
+        width: 60px;
+        height: 60px;
+      }
+
+      .hero-content {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+
+      .two-column {
+        grid-template-columns: 1fr;
+      }
+
+      .layout-visualization {
+        grid-template-columns: 1fr !important;
+        gap: 0.5rem !important;
+      }
+
+      .layout-panel {
+        font-size: 0.9rem !important;
+        padding: 0.75rem !important;
+      }
+
+      .layout-section h4 {
+        font-size: 1rem;
+      }
+
+      .layout-section h5 {
+        font-size: 0.8rem;
+      }
+
+      .nav-links {
+        gap: 1rem;
+      }
+
+      .lang-switch {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .keyboard-row {
+        flex-wrap: wrap;
+      }
+
+      .key {
+        min-width: 2rem;
+        height: 2rem;
+        font-size: 0.8rem;
+      }
+
+      .contact-links {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+
+    /* Language switching */
+    .lang-content {
+      display: none;
+    }
+
+    .lang-content.active {
+      display: block;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="container">
+      <div class="hero">
+        <div class="hero-content">
+          <img src="./assets/martynak.svg" alt="Martynak Logo" class="logo">
+          <h1>Мартынак</h1>
+        </div>
+        <p class="subtitle">Оптимизированная клавиатурная раскладка для русского
+          и английского языков</p>
+
+        <div class="lang-switch">
+          <a href="#" class="lang-btn active" data-lang="ru">Русский</a>
+          <a href="#" class="lang-btn" data-lang="en">English</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <nav>
+    <div class="container">
+      <div class="nav-links">
+        <a href="#about">О раскладке</a>
+        <a href="#features">Особенности</a>
+        <a href="#layouts">Раскладки</a>
+        <a href="#stats">Статистика</a>
+        <a href="#download">Скачать</a>
+        <a href="#getting-started">Как начать</a>
+        <a href="#contact">Контакты</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container">
+    <!-- Russian Content -->
+    <div class="lang-content active" id="content-ru">
+      <section id="about">
+        <h2>О раскладке Мартынак</h2>
+        <div class="two-column">
+          <div>
+            <p>Мартынак — это набор оптимизированных клавиатурных раскладок,
+              разработанный в 2018 году для решения проблемы эффективной слепой
+              печати при переключении между русским и английским языками.</p>
+
+            <p>Раскладка основана на полностью оптимизированной английской
+              раскладке <strong>QGMLWY (Carpalx)</strong> и адаптирована для
+              комфортной работы с кириллицей через фонетические соответствия.
+            </p>
+
+            <p>За 8 лет развития раскладка прошла множество итераций улучшений,
+              став эффективным инструментом для программистов и писателей.</p>
+          </div>
+          <div>
+            <div
+              style="background: var(--bg-secondary); padding: 2rem; border-radius: 12px; text-align: center;">
+              <h3 style="margin-bottom: 1rem; color: var(--primary);">
+                Визуализация раскладки</h3>
+              <!-- Основные слои -->
+              <div class="layout-section" style="margin-bottom: 2rem;">
+                <h4
+                  style="color: var(--text-primary); margin-bottom: 1rem; text-align: center;">
+                  📝 Основной слой (Main Layer)
+                </h4>
+                <div class="layout-visualization"
+                  style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+                  <div class="layout-panel"
+                    style="background: white; padding: 1rem; border-radius: 8px; box-shadow: 0 2px 8px var(--shadow);">
+                    <h5
+                      style="color: var(--text-primary); margin-bottom: 0.5rem; font-size: 0.9rem;">
+                      🔤 English</h5>
+                    <div
+                      style="font-family: monospace; font-size: 1rem; line-height: 1.6; white-space: nowrap; overflow-x: auto;">
+                      q g m l w y f u b ' [ ]<br>
+                      d s t n r i a e o h ;<br>
+                      z x c v j k p , . /
+                    </div>
+                  </div>
+                  <div class="layout-panel"
+                    style="background: white; padding: 1rem; border-radius: 8px; box-shadow: 0 2px 8px var(--shadow);">
+                    <h5
+                      style="color: var(--text-primary); margin-bottom: 0.5rem; font-size: 0.9rem;">
+                      🇷🇺 Русский</h5>
+                    <div
+                      style="font-family: monospace; font-size: 1rem; line-height: 1.6; white-space: nowrap; overflow-x: auto;">
+                      я г м л ш ы ф у б ' [ ]<br>
+                      д с т н р и а е о ч ;<br>
+                      з х ц в й к п , . /
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Shift слой -->
+              <div class="layout-section" style="margin-bottom: 2rem;">
+                <h4
+                  style="color: var(--text-primary); margin-bottom: 1rem; text-align: center;">
+                  ⇧ Shift слой (Shift Layer)
+                </h4>
+                <div class="layout-visualization"
+                  style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+                  <div class="layout-panel"
+                    style="background: white; padding: 1rem; border-radius: 8px; box-shadow: 0 2px 8px var(--shadow);">
+                    <h5
+                      style="color: var(--text-primary); margin-bottom: 0.5rem; font-size: 0.9rem;">
+                      🔤 English</h5>
+                    <div
+                      style="font-family: monospace; font-size: 1rem; line-height: 1.6; white-space: nowrap; overflow-x: auto;">
+                      Q G M L W Y F U B " { }<br>
+                      D S T N R I A E O H :<br>
+                      Z X C V J K P &lt; &gt; ?
+                    </div>
+                  </div>
+                  <div class="layout-panel"
+                    style="background: white; padding: 1rem; border-radius: 8px; box-shadow: 0 2px 8px var(--shadow);">
+                    <h5
+                      style="color: var(--text-primary); margin-bottom: 0.5rem; font-size: 0.9rem;">
+                      🇷🇺 Русский</h5>
+                    <div
+                      style="font-family: monospace; font-size: 1rem; line-height: 1.6; white-space: nowrap; overflow-x: auto;">
+                      Я Г М Л Ш Ы Ф У Б " { }<br>
+                      Д С Т Н Р И А Е О Ч :<br>
+                      З Х Ц В Й К П &lt; &gt; ?
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Alt слой -->
+              <div class="layout-section" style="margin-bottom: 2rem;">
+                <h4
+                  style="color: var(--text-primary); margin-bottom: 1rem; text-align: center;">
+                  ⌥ Alt/Option слой (Alt Layer)
+                </h4>
+                <div class="layout-visualization"
+                  style="display: grid; grid-template-columns: 1fr; gap: 1rem; margin-bottom: 1rem;">
+                  <div class="layout-panel"
+                    style="background: white; padding: 1rem; border-radius: 8px; box-shadow: 0 2px 8px var(--shadow);">
+                    <h5
+                      style="color: var(--text-primary); margin-bottom: 0.5rem; font-size: 0.9rem;">
+                      🌐 Универсальный (En/Ru)</h5>
+                    <div
+                      style="font-family: monospace; font-size: 1rem; line-height: 1.6; white-space: nowrap; overflow-x: auto;">
+                      ё 6 &nbsp;&nbsp;щ 9 &nbsp;&nbsp;ю 8 <br>
+                      5 7 ь ъ 1 э 3 0 4 <br>
+                      2 ж &nbsp;&nbsp;&nbsp;&nbsp;9 &nbsp;&nbsp;« »
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <p style="color: var(--text-secondary); font-size: 0.9rem;">
+                💡 Фонетические соответствия делают переключение между языками
+                интуитивным. Shift добавляет заглавные буквы и символы
+                пунктуации,
+                Alt/Option открывает доступ к дополнительным символам и эмодзи.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="features">
+        <h2>Ключевые особенности</h2>
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon">🎯</div>
+            <h3>Фонетические соответствия</h3>
+            <p>Русские и английские буквы расположены на одних клавишах по
+              звуковому принципу</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">⚡</div>
+            <h3>Оптимизация для слепой печати</h3>
+            <p>Снижение нагрузки на слабые пальцы и увеличение чередования рук
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">🔗</div>
+            <h3>Совместимость пунктуации</h3>
+            <p>Знаки препинания остаются на одних местах в обеих раскладках</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">⌨️</div>
+            <h3>Сохранение горячих клавиш</h3>
+            <p>QWERTY-сочетания для копирования, вставки и отмены работают как
+              обычно</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">📊</div>
+            <h3>Низкий уровень усилий</h3>
+            <p>Снижение физической нагрузки и количества ошибок при печати</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">🌍</div>
+            <h3>Кроссплатформенность</h3>
+            <p>Доступна для macOS, Windows и Android устройств</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="layouts">
+        <h2>Раскладки</h2>
+
+        <div class="keyboard-demo">
+          <h3>Английская раскладка (QGMLWY)</h3>
+          <div class="keyboard-row">
+            <div class="key">Q</div>
+            <div class="key">G</div>
+            <div class="key">M</div>
+            <div class="key">L</div>
+            <div class="key">W</div>
+            <div class="key">Y</div>
+            <div class="key">F</div>
+            <div class="key">U</div>
+            <div class="key">B</div>
+            <div class="key">;</div>
+          </div>
+          <div class="keyboard-row">
+            <div class="key home-row">D</div>
+            <div class="key home-row">S</div>
+            <div class="key home-row">T</div>
+            <div class="key home-row">N</div>
+            <div class="key home-row">R</div>
+            <div class="key home-row">I</div>
+            <div class="key home-row">A</div>
+            <div class="key home-row">E</div>
+            <div class="key home-row">O</div>
+            <div class="key home-row">H</div>
+          </div>
+          <div class="keyboard-row">
+            <div class="key">Z</div>
+            <div class="key">X</div>
+            <div class="key">C</div>
+            <div class="key">V</div>
+            <div class="key">J</div>
+            <div class="key">K</div>
+            <div class="key">P</div>
+            <div class="key">,</div>
+            <div class="key">.</div>
+            <div class="key">/</div>
+          </div>
+        </div>
+
+        <div class="keyboard-demo">
+          <h3>Русская раскладка</h3>
+          <div class="keyboard-row">
+            <!-- ягмлшыфуб'[] -->
+            <div class="key">Я</div>
+            <div class="key">Г</div>
+            <div class="key">М</div>
+            <div class="key">Л</div>
+            <div class="key">Ш</div>
+            <div class="key">Ы</div>
+            <div class="key">Ф</div>
+            <div class="key">У</div>
+            <div class="key">Б</div>
+            <div class="key">'</div>
+          </div>
+          <div class="keyboard-row">
+            <!-- дстнриаеоч; -->
+            <div class="key home-row">Д</div>
+            <div class="key home-row">С</div>
+            <div class="key home-row">Т</div>
+            <div class="key home-row">Н</div>
+            <div class="key home-row">Р</div>
+            <div class="key home-row">И</div>
+            <div class="key home-row">А</div>
+            <div class="key home-row">Е</div>
+            <div class="key home-row">О</div>
+            <div class="key home-row">Ч</div>
+            <div class="key home-row">;</div>
+          </div>
+          <div class="keyboard-row">
+            <div class="key">З</div>
+            <div class="key">Х</div>
+            <div class="key">Ц</div>
+            <div class="key">В</div>
+            <div class="key">Й</div>
+            <div class="key">К</div>
+            <div class="key">П</div>
+            <div class="key">,</div>
+            <div class="key">.</div>
+            <div class="key">/</div>
+          </div>
+        </div>
+      </section>
+
+      <section id="stats">
+        <h2>Статистика эффективности</h2>
+        <p style="text-align: center; margin-bottom: 2rem;">Метрики основаны на
+          исследованиях Carpalx для английской раскладки QGMLWY</p>
+
+        <div class="stats-grid">
+          <div class="stat-card">
+            <span class="stat-number">44%</span>
+            <span>снижение усилий vs QWERTY</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-number">74%</span>
+            <span>печати на домашнем ряду</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-number">11%</span>
+            <span>использование мизинца</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-number">6%</span>
+            <span>печати на нижнем ряду</span>
+          </div>
+        </div>
+
+        <div class="two-column" style="margin-top: 2rem;">
+          <div>
+            <h3>Преимущества перед QWERTY:</h3>
+            <ul style="margin-left: 2rem;">
+              <li>Снижение общих усилий на 44%</li>
+              <li>Уменьшение нагрузки на мизинец с 16% до 11%</li>
+              <li>Увеличение использования домашнего ряда до 74%</li>
+              <li>Улучшенное чередование рук</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Сравнение с Colemak:</h3>
+            <ul style="margin-left: 2rem;">
+              <li>На 10% меньше общих усилий</li>
+              <li>Лучшее чередование рук (60% vs 55%)</li>
+              <li>Меньшая нагрузка на мизинец</li>
+              <li>Сохранение ZXCV для горячих клавиш</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="download" class="download-section">
+        <h2>Скачать раскладку</h2>
+        <p>Выберите версию для вашей операционной системы</p>
+
+        <div class="download-grid">
+          <a href="https://github.com/m0rtyn/martynak/releases/download/release/martynak-v510.dmg"
+            class="download-btn">
+            🍎 macOS<br>
+            <small>DMG установщик</small>
+          </a>
+          <a href="https://github.com/m0rtyn/martynak/releases/download/release/martynak-eng.zip"
+            class="download-btn">
+            🪟 Windows EN<br>
+            <small>ZIP архив</small>
+          </a>
+          <a href="https://github.com/m0rtyn/martynak/releases/download/release/mrtnk-ru.zip"
+            class="download-btn">
+            🪟 Windows RU<br>
+            <small>ZIP архив</small>
+          </a>
+          <a href="https://github.com/m0rtyn/martynak/tree/main/android"
+            class="download-btn">
+            🤖 Android<br>
+            <small>JSON файлы</small>
+          </a>
+        </div>
+
+        <div
+          style="margin-top: 2rem; padding: 1.5rem; background: rgba(255,255,255,0.1); border-radius: 12px;">
+          <h3>Как изучать раскладку:</h3>
+          <p>🎯 <strong>Mac:</strong> Используйте приложение KeyKey из App Store
+            или Setapp</p>
+          <p>🌐 <strong>Браузер:</strong> Расширение Type Fu для Chrome с
+            пользовательскими раскладками</p>
+          <p>📱 <strong>Android:</strong> Загрузите JSON файлы в клавиатуру,
+            поддерживающую кастомные раскладки</p>
+        </div>
+      </section>
+
+      <section id="getting-started" class="getting-started-section">
+        <h2>🚀 Как начать использовать</h2>
+        <p
+          style="text-align: center; margin-bottom: 2rem; color: var(--text-secondary);">
+          Пошаговые инструкции для изучения раскладки Мартынак
+        </p>
+
+        <div class="two-column" style="margin-bottom: 2rem;">
+          <div>
+            <h3 style="color: var(--primary); margin-bottom: 1rem;">📚 Обучение
+              на macOS</h3>
+            <p style="margin-bottom: 1rem;">
+              Рекомендуем использовать приложение <strong>KeyKey</strong> для
+              изучения английской части раскладки.
+              Русская раскладка имеет высокую мнемоническую совместимость,
+              поэтому изучать её отдельно не требуется.
+            </p>
+            <div
+              style="background: var(--bg-primary); padding: 1rem; border-radius: 8px; margin-bottom: 1rem;">
+              <h4 style="margin-bottom: 0.5rem;">Шаги:</h4>
+              <ol style="margin-left: 1.5rem;">
+                <li>Установите KeyKey из App Store</li>
+                <li>Выберите раскладку QGMLWY</li>
+                <li>Тренируйтесь 15-30 минут в день</li>
+                <li>Переключайтесь на русский для закрепления</li>
+              </ol>
+            </div>
+          </div>
+          <div style="text-align: center;">
+            <img src="./assets/keykey-app--layout-selection.png"
+              alt="Выбор раскладки в KeyKey"
+              style="width: 100%; max-width: 300px; border-radius: 12px; box-shadow: 0 4px 12px var(--shadow);">
+            <p
+              style="font-size: 0.9rem; color: var(--text-secondary); margin-top: 0.5rem;">
+              Выбор QGMLWY раскладки в KeyKey
+            </p>
+          </div>
+        </div>
+
+        <div class="two-column">
+          <div style="text-align: center;">
+            <img src="./assets/keykey-app--how-to-select-qgmlwy.png"
+              alt="Как выбрать QGMLWY в KeyKey"
+              style="width: 100%; max-width: 300px; border-radius: 12px; box-shadow: 0 4px 12px var(--shadow);">
+            <p
+              style="font-size: 0.9rem; color: var(--text-secondary); margin-top: 0.5rem;">
+              Настройка QGMLWY в приложении
+            </p>
+          </div>
+          <div>
+            <h3 style="color: var(--primary); margin-bottom: 1rem;">🎯
+              Альтернативные методы</h3>
+            <div
+              style="background: var(--bg-secondary); padding: 1.5rem; border-radius: 12px;">
+              <h4 style="margin-bottom: 1rem;">💻 Type Fu (браузер)</h4>
+              <p style="margin-bottom: 1rem;">
+                Используйте расширение Type Fu для Chrome/Firefox с кастомными
+                раскладками
+                из папки <code>type-fu-layouts/</code>
+              </p>
+
+              <h4 style="margin-bottom: 1rem;">📝 Печатайте тексты</h4>
+              <p style="margin-bottom: 1rem;">
+                Начните с простых текстов, постепенно увеличивая сложность.
+                Сосредоточьтесь на точности, а не на скорости.
+              </p>
+
+              <div
+                style="background: white; padding: 1rem; border-radius: 8px; margin-top: 1rem;">
+                <p
+                  style="text-align: center; margin: 0; color: var(--primary); font-weight: 600;">
+                  🏆 Главное правило: терпение и постоянство!
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="contact-section">
+        <h2>Связаться с автором</h2>
+        <p>Есть вопросы, предложения или хотите поделиться опытом использования
+          Мартынак?</p>
+
+        <div class="contact-links">
+          <a href="https://t.me/m0rtyn" class="contact-link">
+            📱 Telegram
+          </a>
+          <a href="mailto:m0rtyn.dev@gmail.com" class="contact-link">
+            ✉️ Email
+          </a>
+          <a href="https://github.com/m0rtyn/martynak" class="contact-link">
+            🐙 GitHub
+          </a>
+        </div>
+
+        <div
+          style="margin-top: 2rem; padding: 1.5rem; background: var(--bg-primary); border-radius: 12px;">
+          <h3>Доклады о раскладке:</h3>
+          <div
+            style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-top: 1rem;">
+            <a href="https://m0rtyn.github.io/no-more-qwerty/#"
+              style="color: var(--primary); text-decoration: none; font-weight: 500;">
+              📊 "No More QWERTY"
+            </a>
+            <a href="https://m0rtyn.github.io/slides/5-ways-to-improve-keyboard-layout/index.html"
+              style="color: var(--primary); text-decoration: none; font-weight: 500;">
+              🔧 "5 способов улучшить раскладку"
+            </a>
+          </div>
+        </div>
+
+        <div
+          style="margin-top: 2rem; padding: 1.5rem; background: var(--bg-secondary); border-radius: 12px; text-align: center;">
+          <h3 style="margin-bottom: 1rem;">Дизайн логотипа</h3>
+          <p style="margin-bottom: 0.5rem;">Логотип Мартынак создан талантливым
+            дизайнером</p>
+          <p
+            style="font-weight: 600; color: var(--primary); font-size: 1.1rem;">
+            Milo Xeon</p>
+          <p
+            style="font-size: 0.9rem; color: var(--text-secondary); margin-top: 0.5rem;">
+            🎨 Спасибо за красивый и запоминающийся дизайн!
+          </p>
+        </div>
+      </section>
+    </div>
+
+    <!-- English Content -->
+    <div class="lang-content" id="content-en">
+      <section id="about">
+        <h2>About Martynak Layout</h2>
+        <div class="two-column">
+          <div>
+            <p>Martynak is a set of optimized keyboard layouts developed in 2018
+              to solve the problem of efficient touch typing when switching
+              between Russian and English languages.</p>
+
+            <p>The layout is based on the fully optimized English <strong>QGMLWY
+                (Carpalx)</strong> layout and adapted for comfortable work with
+              Cyrillic through phonetic correspondences.</p>
+
+            <p>Over 8 years of development, the layout has gone through many
+              iterations of improvements, becoming an efficient tool for
+              programmers and writers.</p>
+          </div>
+          <div>
+            <div
+              style="background: var(--bg-secondary); padding: 2rem; border-radius: 12px; text-align: center;">
+              <h3 style="margin-bottom: 1rem; color: var(--primary);">Layout
+                Visualization</h3>
+              <!-- Main Layer -->
+              <div class="layout-section" style="margin-bottom: 2rem;">
+                <h4
+                  style="color: var(--text-primary); margin-bottom: 1rem; text-align: center;">
+                  📝 Main Layer
+                </h4>
+                <div class="layout-visualization"
+                  style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+                  <div class="layout-panel"
+                    style="background: white; padding: 1rem; border-radius: 8px; box-shadow: 0 2px 8px var(--shadow);">
+                    <h5
+                      style="color: var(--text-primary); margin-bottom: 0.5rem; font-size: 0.9rem;">
+                      🔤 English</h5>
+                    <div
+                      style="font-family: monospace; font-size: 1rem; line-height: 1.6; white-space: nowrap; overflow-x: auto;">
+                      Q G M L W Y F U B ' [ ]<br>
+                      D S T N R I A E O H ;<br>
+                      Z X C V J K P , . /
+                    </div>
+                  </div>
+                  <div class="layout-panel"
+                    style="background: white; padding: 1rem; border-radius: 8px; box-shadow: 0 2px 8px var(--shadow);">
+                    <h5
+                      style="color: var(--text-primary); margin-bottom: 0.5rem; font-size: 0.9rem;">
+                      🇷🇺 Russian</h5>
+                    <div
+                      style="font-family: monospace; font-size: 1rem; line-height: 1.6; white-space: nowrap; overflow-x: auto;">
+                      Я Г М Л Ш Ы Ф У Б ' [ ]<br>
+                      Д С Т Н Р И А Е О Ч ;<br>
+                      З Х Ц В Й К П , . /
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Shift Layer -->
+              <div class="layout-section" style="margin-bottom: 2rem;">
+                <h4
+                  style="color: var(--text-primary); margin-bottom: 1rem; text-align: center;">
+                  ⇧ Shift Layer
+                </h4>
+                <div class="layout-visualization"
+                  style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+                  <div class="layout-panel"
+                    style="background: white; padding: 1rem; border-radius: 8px; box-shadow: 0 2px 8px var(--shadow);">
+                    <h5
+                      style="color: var(--text-primary); margin-bottom: 0.5rem; font-size: 0.9rem;">
+                      🔤 English</h5>
+                    <div
+                      style="font-family: monospace; font-size: 1rem; line-height: 1.6; white-space: nowrap; overflow-x: auto;">
+                      Q G M L W Y F U B " { }<br>
+                      D S T N R I A E O H :<br>
+                      Z X C V J K P &lt; &gt; ?
+                    </div>
+                  </div>
+                  <div class="layout-panel"
+                    style="background: white; padding: 1rem; border-radius: 8px; box-shadow: 0 2px 8px var(--shadow);">
+                    <h5
+                      style="color: var(--text-primary); margin-bottom: 0.5rem; font-size: 0.9rem;">
+                      🇷🇺 Russian</h5>
+                    <div
+                      style="font-family: monospace; font-size: 1rem; line-height: 1.6; white-space: nowrap; overflow-x: auto;">
+                      Я Г М Л Ш Ы Ф У Б " { }<br>
+                      Д С Т Н Р И А Е О Ч :<br>
+                      З Х Ц В Й К П &lt; &gt; ?
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Alt Layer -->
+              <div class="layout-section" style="margin-bottom: 2rem;">
+                <h4
+                  style="color: var(--text-primary); margin-bottom: 1rem; text-align: center;">
+                  ⌥ Alt/Option Layer
+                </h4>
+                <div class="layout-visualization"
+                  style="display: grid; grid-template-columns: 1fr; gap: 1rem; margin-bottom: 1rem;">
+                  <div class="layout-panel"
+                    style="background: white; padding: 1rem; border-radius: 8px; box-shadow: 0 2px 8px var(--shadow);">
+                    <h5
+                      style="color: var(--text-primary); margin-bottom: 0.5rem; font-size: 0.9rem;">
+                      🌐 Universal (En/Ru)</h5>
+                    <div
+                      style="font-family: monospace; font-size: 1rem; line-height: 1.6; white-space: nowrap; overflow-x: auto;">
+                      " ё 6 &nbsp;&nbsp;щ 9 &nbsp;&nbsp;ю 8 "<br>
+                      " 5 7 ь ъ 1 э 3 0 4 "<br>
+                      " 2 ж &nbsp;&nbsp;&nbsp;&nbsp;9 &nbsp;&nbsp;« » "
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <p style="color: var(--text-secondary); font-size: 0.9rem;">
+                💡 Phonetic correspondences make switching between languages
+                intuitive. Shift adds capitals and punctuation symbols,
+                Alt/Option provides access to additional symbols and special
+                characters.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="features">
+        <h2>Key Features</h2>
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon">🎯</div>
+            <h3>Phonetic Associations</h3>
+            <p>Russian and English letters are placed on the same keys based on
+              sound principle</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">⚡</div>
+            <h3>Touch Typing Optimization</h3>
+            <p>Reduced load on weak fingers and increased hand alternation</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">🔗</div>
+            <h3>Punctuation Compatibility</h3>
+            <p>Punctuation marks remain in the same places in both layouts</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">⌨️</div>
+            <h3>QWERTY Hotkey Compatibility</h3>
+            <p>Copy, paste, and undo shortcuts work as usual</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">📊</div>
+            <h3>Low Effort Level</h3>
+            <p>Reduced physical strain and fewer typing errors</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">🌍</div>
+            <h3>Cross-platform</h3>
+            <p>Available for macOS, Windows, and Android devices</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="layouts">
+        <h2>Layouts</h2>
+
+        <div class="keyboard-demo">
+          <h3>English Layout (QGMLWY)</h3>
+          <div class="keyboard-row">
+            <div class="key">Q</div>
+            <div class="key">G</div>
+            <div class="key">M</div>
+            <div class="key">L</div>
+            <div class="key">W</div>
+            <div class="key">Y</div>
+            <div class="key">F</div>
+            <div class="key">U</div>
+            <div class="key">B</div>
+            <div class="key">'</div>
+          </div>
+          <div class="keyboard-row">
+            <div class="key home-row">D</div>
+            <div class="key home-row">S</div>
+            <div class="key home-row">T</div>
+            <div class="key home-row">N</div>
+            <div class="key home-row">R</div>
+            <div class="key home-row">I</div>
+            <div class="key home-row">A</div>
+            <div class="key home-row">E</div>
+            <div class="key home-row">O</div>
+            <div class="key home-row">H</div>
+            <div class="key home-row">;</div>
+          </div>
+          <div class="keyboard-row">
+            <div class="key">Z</div>
+            <div class="key">X</div>
+            <div class="key">C</div>
+            <div class="key">V</div>
+            <div class="key">J</div>
+            <div class="key">K</div>
+            <div class="key">P</div>
+            <div class="key">,</div>
+            <div class="key">.</div>
+            <div class="key">/</div>
+          </div>
+        </div>
+
+        <div class="keyboard-demo">
+          <h3>Russian Layout</h3>
+          <div class="keyboard-row">
+            <div class="key">Я</div>
+            <div class="key">Г</div>
+            <div class="key">М</div>
+            <div class="key">Л</div>
+            <div class="key">Ш</div>
+            <div class="key">Ы</div>
+            <div class="key">Ф</div>
+            <div class="key">У</div>
+            <div class="key">Б</div>
+            <div class="key">'</div>
+          </div>
+          <div class="keyboard-row">
+            <div class="key home-row">Д</div>
+            <div class="key home-row">С</div>
+            <div class="key home-row">Т</div>
+            <div class="key home-row">Н</div>
+            <div class="key home-row">Р</div>
+            <div class="key home-row">И</div>
+            <div class="key home-row">А</div>
+            <div class="key home-row">Е</div>
+            <div class="key home-row">О</div>
+            <div class="key home-row">Ч</div>
+            <div class="key home-row">;</div>
+          </div>
+          <div class="keyboard-row">
+            <div class="key">З</div>
+            <div class="key">Х</div>
+            <div class="key">Ц</div>
+            <div class="key">В</div>
+            <div class="key">Й</div>
+            <div class="key">К</div>
+            <div class="key">П</div>
+            <div class="key">,</div>
+            <div class="key">.</div>
+            <div class="key">/</div>
+          </div>
+        </div>
+      </section>
+
+      <section id="stats">
+        <h2>Efficiency Statistics</h2>
+        <p style="text-align: center; margin-bottom: 2rem;">Metrics based on
+          Carpalx research for QGMLWY English layout</p>
+
+        <div class="stats-grid">
+          <div class="stat-card">
+            <span class="stat-number">44%</span>
+            <span>effort reduction vs QWERTY</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-number">74%</span>
+            <span>typing on home row</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-number">11%</span>
+            <span>pinky usage</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-number">6%</span>
+            <span>bottom row usage</span>
+          </div>
+        </div>
+
+        <div class="two-column" style="margin-top: 2rem;">
+          <div>
+            <h3>Advantages over QWERTY:</h3>
+            <ul style="margin-left: 2rem;">
+              <li>44% reduction in overall effort</li>
+              <li>Decreased pinky load from 16% to 11%</li>
+              <li>Increased home row usage to 74%</li>
+              <li>Improved hand alternation</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Comparison with Colemak:</h3>
+            <ul style="margin-left: 2rem;">
+              <li>10% less overall effort</li>
+              <li>Better hand alternation (60% vs 55%)</li>
+              <li>Lower pinky strain</li>
+              <li>Preserves ZXCV for shortcuts</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="download" class="download-section">
+        <h2>Download Layout</h2>
+        <p>Choose the version for your operating system</p>
+
+        <div class="download-grid">
+          <a href="https://github.com/m0rtyn/martynak/releases/download/release/martynak-v510.dmg"
+            class="download-btn">
+            🍎 macOS<br>
+            <small>DMG installer</small>
+          </a>
+          <a href="https://github.com/m0rtyn/martynak/releases/download/release/martynak-eng.zip"
+            class="download-btn">
+            🪟 Windows EN<br>
+            <small>ZIP archive</small>
+          </a>
+          <a href="https://github.com/m0rtyn/martynak/releases/download/release/mrtnk-ru.zip"
+            class="download-btn">
+            🪟 Windows RU<br>
+            <small>ZIP archive</small>
+          </a>
+          <a href="https://github.com/m0rtyn/martynak/tree/main/android"
+            class="download-btn">
+            🤖 Android<br>
+            <small>JSON files</small>
+          </a>
+        </div>
+
+        <div
+          style="margin-top: 2rem; padding: 1.5rem; background: rgba(255,255,255,0.1); border-radius: 12px;">
+          <h3>How to learn the layout:</h3>
+          <p>🎯 <strong>Mac:</strong> Use KeyKey app from App Store or Setapp
+          </p>
+          <p>🌐 <strong>Browser:</strong> Type Fu extension for Chrome with
+            custom layouts</p>
+          <p>📱 <strong>Android:</strong> Load JSON files into keyboard
+            supporting custom layouts</p>
+        </div>
+      </section>
+
+      <section id="getting-started" class="getting-started-section">
+        <h2>🚀 Getting Started</h2>
+        <p
+          style="text-align: center; margin-bottom: 2rem; color: var(--text-secondary);">
+          Step-by-step instructions for learning the Martynak layout
+        </p>
+
+        <div class="two-column" style="margin-bottom: 2rem;">
+          <div>
+            <h3 style="color: var(--primary); margin-bottom: 1rem;">📚 Learning
+              on macOS</h3>
+            <p style="margin-bottom: 1rem;">
+              We recommend using the <strong>KeyKey</strong> app to learn the
+              English part of the layout.
+              The Russian layout has high mnemonic compatibility, so you don't
+              need to learn it separately.
+            </p>
+            <div
+              style="background: var(--bg-primary); padding: 1rem; border-radius: 8px; margin-bottom: 1rem;">
+              <h4 style="margin-bottom: 0.5rem;">Steps:</h4>
+              <ol style="margin-left: 1.5rem;">
+                <li>Install KeyKey from the App Store</li>
+                <li>Select the QGMLWY layout</li>
+                <li>Practice 15-30 minutes daily</li>
+                <li>Switch to Russian to reinforce learning</li>
+              </ol>
+            </div>
+          </div>
+          <div style="text-align: center;">
+            <img src="./assets/keykey-app--layout-selection.png"
+              alt="Layout selection in KeyKey"
+              style="width: 100%; max-width: 300px; border-radius: 12px; box-shadow: 0 4px 12px var(--shadow);">
+            <p
+              style="font-size: 0.9rem; color: var(--text-secondary); margin-top: 0.5rem;">
+              Selecting QGMLWY layout in KeyKey
+            </p>
+          </div>
+        </div>
+
+        <div class="two-column">
+          <div style="text-align: center;">
+            <img src="./assets/keykey-app--how-to-select-qgmlwy.png"
+              alt="How to select QGMLWY in KeyKey"
+              style="width: 100%; max-width: 300px; border-radius: 12px; box-shadow: 0 4px 12px var(--shadow);">
+            <p
+              style="font-size: 0.9rem; color: var(--text-secondary); margin-top: 0.5rem;">
+              Setting up QGMLWY in the app
+            </p>
+          </div>
+          <div>
+            <h3 style="color: var(--primary); margin-bottom: 1rem;">🎯
+              Alternative Methods</h3>
+            <div
+              style="background: var(--bg-secondary); padding: 1.5rem; border-radius: 12px;">
+              <h4 style="margin-bottom: 1rem;">💻 Type Fu (Browser)</h4>
+              <p style="margin-bottom: 1rem;">
+                Use the Type Fu extension for Chrome/Firefox with custom layouts
+                from the <code>type-fu-layouts/</code> folder
+              </p>
+
+              <h4 style="margin-bottom: 1rem;">📝 Type Texts</h4>
+              <p style="margin-bottom: 1rem;">
+                Start with simple texts, gradually increasing complexity.
+                Focus on accuracy, not speed.
+              </p>
+
+              <div
+                style="background: white; padding: 1rem; border-radius: 8px; margin-top: 1rem;">
+                <p
+                  style="text-align: center; margin: 0; color: var(--primary); font-weight: 600;">
+                  🏆 Main rule: patience and consistency!
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="contact-section">
+        <h2>Contact the Author</h2>
+        <p>Have questions, suggestions, or want to share your experience with
+          Martynak?</p>
+
+        <div class="contact-links">
+          <a href="https://t.me/m0rtyn" class="contact-link">
+            📱 Telegram
+          </a>
+          <a href="mailto:m0rtyn.dev@gmail.com" class="contact-link">
+            ✉️ Email
+          </a>
+          <a href="https://github.com/m0rtyn/martynak" class="contact-link">
+            🐙 GitHub
+          </a>
+        </div>
+
+        <div
+          style="margin-top: 2rem; padding: 1.5rem; background: var(--bg-primary); border-radius: 12px;">
+          <h3>Talks about the layout:</h3>
+          <div
+            style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-top: 1rem;">
+            <a href="https://m0rtyn.github.io/no-more-qwerty/#"
+              style="color: var(--primary); text-decoration: none; font-weight: 500;">
+              📊 "No More QWERTY"
+            </a>
+            <a href="https://m0rtyn.github.io/slides/5-ways-to-improve-keyboard-layout/index.html"
+              style="color: var(--primary); text-decoration: none; font-weight: 500;">
+              🔧 "5 Ways to Improve Layout"
+            </a>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2018-2025 Мартынак. Разработано с ❤️ для эффективной печати.</p>
+      <p>Based on <a href="https://mk.bcgsc.ca/carpalx/?full_optimization"
+          style="color: #fff;">Carpalx QGMLWY</a> optimization research</p>
+    </div>
+  </footer>
+
+  <script>
+    // Language switching
+    const langButtons = document.querySelectorAll('.lang-btn');
+    const langContents = document.querySelectorAll('.lang-content');
+
+    langButtons.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const lang = btn.dataset.lang;
+
+        // Update active button
+        langButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        // Update content
+        langContents.forEach(content => {
+          content.classList.remove('active');
+        });
+        document.getElementById(`content-${lang}`).classList.add('active');
+
+        // Update page language
+        document.documentElement.lang = lang;
+
+        // Update title
+        if (lang === 'en') {
+          document.title = 'Martynak — Optimized Keyboard Layout';
+          document.querySelector('.hero h1').textContent = 'Martynak';
+          document.querySelector('.hero .subtitle').textContent = 'Optimized keyboard layout for Russian and English languages';
+        } else {
+          document.title = 'Мартынак — оптимизированная клавиатурная раскладка';
+          document.querySelector('.hero h1').textContent = 'Мартынак';
+          document.querySelector('.hero .subtitle').textContent = 'Оптимизированная клавиатурная раскладка для русского и английского языков';
+        }
+      });
+    });
+
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        if (this.getAttribute('href') !== '#' && !this.dataset.lang) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            target.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
+          }
+        }
+      });
+    });
+
+    // Add scroll animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('fade-in');
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('section').forEach(section => {
+      observer.observe(section);
+    });
+
+    // Keyboard demo interactivity
+    document.querySelectorAll('.key').forEach(key => {
+      key.addEventListener('click', () => {
+        key.style.transform = 'scale(0.95)';
+        setTimeout(() => {
+          key.style.transform = '';
+        }, 150);
+      });
+    });
+  </script>
+
+  <footer
+    style="background: var(--bg-secondary); padding: 2rem 0; text-align: center; margin-top: 4rem;">
+    <div class="container">
+      <div
+        style="display: flex; align-items: center; justify-content: center; gap: 2rem; flex-wrap: wrap;">
+        <div>
+          <img src="./assets/funny-keyboard-image-with-curly-fingers.png"
+            alt="Забавное изображение клавиатуры"
+            style="width: 120px; height: auto; border-radius: 12px; opacity: 0.8;">
+        </div>
+        <div>
+          <h3 style="color: var(--primary); margin-bottom: 0.5rem;">Мартынак
+            2025</h3>
+          <p style="color: var(--text-secondary); margin: 0;">
+            Оптимизированная раскладка для эффективной печати
+          </p>
+          <p
+            style="color: var(--text-secondary); font-size: 0.9rem; margin-top: 0.5rem;">
+            Создано с ❤️ для программистов и писателей
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html>
