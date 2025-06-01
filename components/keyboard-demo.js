@@ -215,7 +215,7 @@ class KeyboardDemo extends HTMLElement {
     const isUpperCase = this.isUpperCase()
     // console.log("🚀 ~ file: keyboard-demo.js ~ isUpperCase", isUpperCase)
     const result = isUpperCase ? key?.toUpperCase() : key
-    console.log("🚀 ~ file: keyboard-demo.js ~ func: getKeyBaseByLanguage ~ var: result", result)
+    // console.log("🚀 ~ file: keyboard-demo.js ~ func: getKeyBaseByLanguage ~ var: result", result)
     return result
   }
 
