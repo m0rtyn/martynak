@@ -1,0 +1,101 @@
+:host {
+  display: block;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+.keyboard-demo {
+  background: var(--bg-secondary, #f8f9fa);
+  padding: 2rem;
+  border-radius: 12px;
+  margin: 2rem 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.keyboard-demo h3 {
+  margin: 0 0 1.5rem 0;
+  color: var(--text-primary, #333);
+  text-align: center;
+}
+
+.keyboard-row {
+  display: flex;
+  justify-content: center;
+  gap: 0.25rem;
+  margin-bottom: 0.25rem;
+  align-items: center;
+}
+
+.key {
+  width: 2.5rem;
+  height: 2.5rem;
+  background: white;
+  border: 2px solid #e0e0e0;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  user-select: none;
+}
+
+.key:hover {
+  background: #f0f0f0;
+  transform: translateY(-1px);
+}
+
+.key.home-row {
+  border-color: var(--primary, #007bff);
+  background: rgba(0, 123, 255, 0.1);
+}
+
+.modifier,
+.lang-switch {
+  background: var(--primary, #007bff);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: none;
+  font-size: 0.9rem;
+}
+
+.lang-switch {
+  font-size: 1.5rem;
+  font-family: monospace;
+  padding: 0.5rem 5rem;
+  margin: auto;
+  background: var(--accent, #6c757d);
+}
+
+.modifier:hover {
+  background: var(--primary-dark, #0056b3);
+  transform: translateY(-1px);
+}
+
+.modifier.active {
+  background: var(--success, #28a745);
+  box-shadow: 0 2px 8px rgba(40, 167, 69, 0.3);
+}
+
+@media (max-width: 768px) {
+  .keyboard-demo {
+    padding: 1rem;
+  }
+
+  .key {
+    width: 2rem;
+    height: 2rem;
+    font-size: 0.9rem;
+  }
+
+  .modifier {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.8rem;
+  }
+}
