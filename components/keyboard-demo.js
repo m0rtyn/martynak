@@ -8,7 +8,7 @@ class KeyboardDemo extends HTMLElement {
     this.activeModifiers = new Set();
     this.stylesLoaded = false;
     this.demoLang = 'RU';
-    this.title = '🇷🇺 Русская клавиатура';
+    this.title = '🇷🇺 Русский';
   }
 
   async connectedCallback() {
@@ -41,7 +41,11 @@ class KeyboardDemo extends HTMLElement {
   }
 
   static get observedAttributes() {
-    return [];
+    return ['language'];
+  }
+
+  get language() {
+    return this.getAttribute('language') || 'RU';
   }
 
   attributeChangedCallback(name, oldValue, newValue) {
@@ -203,7 +207,9 @@ class KeyboardDemo extends HTMLElement {
   }
 
   toggleDemoTitle() {
-    this.title = this.demoLang === 'EN' ? '🇬🇧 English Keyboard' : '🇷🇺 Русская клавиатура';
+    this.title = this.language === 'RU'
+      ? this.demoLang === 'EN' ? '🇬🇧 Английский' : '🇷🇺 Русский'
+      : this.demoLang === 'RU' ? '🇷🇺 Russian' : '🇬🇧 English';
     return this.title;
   }
 
